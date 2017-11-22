@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		html,
+		body {
+			min-height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		h1{
+			text-align: center;
+		}
+		#map {
+			height: 85vh;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>我在地圖上的痕跡</h1>
+	<div id="map"></div>
+	<script>
+		function getBigLabel(the_text){
+			return {
+				text:the_text,
+				fontWeight:"bolder",
+				fontSize:'25px'
+			}
+		}
+
+		function initMap() {
+			let taiwan = { lat: 22.6239298, lng: 120.3703426 };
+			let melbourne = { lat: -28.024, lng: 140.887 };
+
+
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: { lat: 22.580872, lng: 120.406234 },
+				zoom: 10
+			});
+
+			// let MarkerLabel = new google.maps.MarkerLabel;
+				// MarkerLabel.color = 'red';
+				// MarkerLabel.fontSize = '17px';
+
+			markers = [ new google.maps.Marker(
+								{
+									position: { lat: 22.580872, lng: 120.406234 }, label: getBigLabel('大寮')
+								}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 22.6122365, lng: 120.3579599 }, label:getBigLabel('鳳山'), }
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 24.785975, lng: 121.000028 }, label:getBigLabel('大學生活')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 49.250556, lng: -123.111944 }, label:getBigLabel('遊學')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 24.157696, lng: 120.684093 }, label:getBigLabel('環島台中住宿')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 24.056679, lng: 120.432988 }, label:getBigLabel('環島彰化鹿港住宿')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 22.753152, lng: 121.158409 }, label:getBigLabel('環島台東住宿')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 24.668681, lng: 121.818352 }, label:getBigLabel('環島宜蘭住宿')}
+							),
+
+							new google.maps.Marker( 
+									{position:{ lat: 25.082236, lng: 121.566995 }, label:getBigLabel('第1份台北工作的家')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: -31.945060, lng: 115.863070 }, label:getBigLabel('伯斯第1天住宿')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: -33.346620, lng: 115.640989 }, label:getBigLabel('Neiville的家(住2個月)')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: -37.815542, lng: 144.955092 }, label:getBigLabel('墨爾本第1天住的旅館')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 25.090616, lng: 121.474993 }, label:getBigLabel('三重蘆洲家')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 47.598540, lng: -122.326694 }, label:getBigLabel('西雅圖第1天住宿')}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 45.524707, lng: -122.673443 }, label:getBigLabel("波特蘭第1天住宿")}
+							),
+							new google.maps.Marker( 
+									{position:{ lat: 28.492270, lng: 77.098238 }, label: getBigLabel("印度沙發衝浪住2天") }
+									
+	
+							),
+							new google.maps.Marker( 
+									{position:{ lat: -1.282596, lng: 36.830749 }, label:getBigLabel('肯亞第1天的旅館')}
+							),
+
+							]
+
+
+		  var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+		}
+	</script>
+	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWYzz2lBMvowMn-59HjvOZux1PMgtBD1s&callback=initMap">
+	</script>
+</body>
+
+</html>
